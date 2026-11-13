@@ -325,13 +325,20 @@ Votre page personnalisée doit s'afficher sur le port 8080.
 kubectl delete pod -l app=site
 ```
 
-Relancez le tunnel, puis rechargez la page. Cette fois, votre page **survit**.
+Attendez que le pod de remplacement soit prêt, puis relancez le tunnel et rechargez la page. Cette fois, votre page **survit**.
+
+```bash
+kubectl get pods -l app=site -w
+```
+
+Quand le nouveau pod affiche `1/1` dans la colonne `READY`, arrêtez la commande avec <kbd>Ctrl</kbd>+<kbd>C</kbd>, puis relancez le tunnel :
 
 ```bash
 pkill -f "port-forward svc/site"
-kubectl rollout status deploy/site
 kubectl port-forward svc/site 8080:80 > /tmp/site.log 2>&1 &
 ```
+
+La suppression d'un pod ne déclenche pas un nouveau rollout : `kubectl rollout status` peut donc finir avant que le pod de remplacement soit prêt. La surveillance évite de relancer le tunnel trop tôt.
 
 ### 4.4 Modifier le site, version déclarative
 
