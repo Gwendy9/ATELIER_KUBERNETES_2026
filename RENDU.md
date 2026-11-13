@@ -55,7 +55,10 @@
 ## Bonus (facultatif)
 
 14. Bonus réalisés et remarques :
-    >
+    > A : site accessible via Ingress sur le port 8081. 
+    > B : ajout d'une readinessProbe et de limites de ressources. 
+    > C : agent-0 drainé puis remis en service ; les pods déplacés ne reviennent pas automatiquement. 
+    > D : seconde copie du site déployée dans le namespace prod.
 
 ---
 
