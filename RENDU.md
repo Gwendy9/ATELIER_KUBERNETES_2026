@@ -48,7 +48,7 @@
 ## Exercice 6 — Portainer & Mario
 
 12. URL publique de votre Mario :
-    > `https://<nom-du-codespace>-8585.app.github.dev/` (remplacez le placeholder par le nom de votre Codespace).
+    > `https://<ATELIER_KUBERNETES_2026>-8585.app.github.dev/` .
 13. Retrouvez le Deployment `mario` en ligne de commande. Portainer et `kubectl` parlent-ils au même composant ? Lequel ?
     > Oui. Les deux pilotent le même cluster via l'API Server de Kubernetes. On peut afficher le Deployment avec `kubectl get deploy mario -o yaml`.
 
